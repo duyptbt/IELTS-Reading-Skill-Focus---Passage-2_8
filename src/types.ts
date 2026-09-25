@@ -78,6 +78,8 @@ export interface TestResult {
   }[];
 }
 
+export type ConsolidationLanguage = 'en' | 'vi';
+
 // Consolidation Language Input & Reading Skill Activities Types
 export interface VocabItem {
   id: string;
@@ -85,74 +87,110 @@ export interface VocabItem {
   phonetic: string;
   partOfSpeech: string;
   definition: string;
+  meaningVi: string;
+  definitionVi: string;
   passageQuote: string;
+  passageQuoteVi: string;
   paragraphRef: 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G';
   collocations: string[];
+  collocationsVi?: { en: string; vi: string }[];
   synonyms: string[];
+  synonymsVi?: string[];
   ieltsBand: 'Band 7' | 'Band 8' | 'Band 9';
   category: 'Metaphors & Idioms' | 'Academic Verbs' | 'Business & Economics' | 'Formal Collocations';
   writingSpeakingTip: string;
+  writingSpeakingTipVi: string;
 }
 
 export interface AcademicStructure {
   id: string;
   title: string;
+  titleVi: string;
   category: string;
+  categoryVi: string;
   pattern: string;
+  patternVi?: string;
   passageExample: string;
+  passageExampleVi: string;
   paragraphRef: 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G';
   explanation: string;
+  explanationVi: string;
   ieltsApplication: string;
+  ieltsApplicationVi: string;
   templateExercise: {
     scaffold: string;
     sampleCompletion: string;
+    scaffoldVi?: string;
+    sampleCompletionVi?: string;
   };
 }
 
 export interface SynonymMatchTask {
   id: string;
   passageWord: string;
+  passageWordVi?: string;
   paragraphRef: 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G';
   passageContext: string;
+  passageContextVi: string;
   correctSynonym: string;
+  correctSynonymVi: string;
   distractors: string[];
+  distractorsVi?: string[];
   ieltsTrapNote: string;
+  ieltsTrapNoteVi: string;
 }
 
 export interface CollocationGapTask {
   id: string;
   sentence: string;
+  sentenceVi: string;
   missingWord: string;
   options: string[];
+  optionsVi?: Record<string, string>;
   passageRef: 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G';
   explanation: string;
+  explanationVi: string;
   collocationRule: string;
+  collocationRuleVi: string;
 }
 
 export interface DiscourseAnalysisTask {
   id: string;
   connector: string;
+  connectorVi?: string;
   sentenceContext: string;
+  sentenceContextVi: string;
   paragraphRef: 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G';
   functionType: 'Cause & Effect' | 'Concession & Counter-argument' | 'Sequence & Historical Transition' | 'Hedging & Evaluation' | 'Exemplification';
+  functionTypeVi: string;
   options: string[];
+  optionsVi?: Record<string, string>;
   explanation: string;
+  explanationVi: string;
 }
 
 export interface SpeedEvidenceTask {
   id: string;
   prompt: string;
+  promptVi: string;
   correctParagraph: 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G';
   keyEvidenceQuote: string;
+  keyEvidenceQuoteVi: string;
   scanningClue: string;
+  scanningClueVi: string;
 }
 
 export interface ParaphraseMasteryPair {
   id: string;
   context: string;
+  contextVi: string;
   questionType: string;
+  questionTypeVi: string;
   original: string;
+  originalVi: string;
   paraphrase: string;
+  paraphraseVi: string;
+  explanationVi?: string;
   paragraphRef?: 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G';
 }
 
